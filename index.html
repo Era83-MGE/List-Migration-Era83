@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<meta name="description" content="Bienvenido a ERA 83, la comunidad de Age of Empires Mobile donde GLX y CRS trabajan codo a codo.">
+<title>ERA 83 | Bienvenidos</title>
+
+<style>
+:root {
+  --bg: #0b1220;
+  --panel: #142238;
+  --panel2: #1b2d47;
+  --gold: #f5c66b;
+  --text: #f4f6fb;
+  --muted: #b8c4d8;
+  --line: #30435f;
+  --green: #7de0ad;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: radial-gradient(ellipse at top, #203657 0%, var(--bg) 58%);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  line-height: 1.65;
+}
+
+a { color: inherit; }
+
+.container {
+  width: min(1100px, 92%);
+  margin: auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 24px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.logo {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--gold);
+  border-radius: 15px;
+  background: linear-gradient(145deg, #2b4568, #101827);
+  color: var(--gold);
+  font-size: 23px;
+  font-weight: 900;
+  box-shadow: 0 0 25px #f5c66b20;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.45rem;
+  letter-spacing: 3px;
+}
+
+.brand p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.language-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+}
+
+select {
+  max-width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(28px, 6vw, 65px);
+  border: 1px solid #455b79;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #1c304dee, #111b2cee);
+  box-shadow: 0 20px 65px #0004;
+}
+
+.hero::after {
+  content: "83";
+  position: absolute;
+  right: -25px;
+  top: -65px;
+  font-size: clamp(150px, 28vw, 300px);
+  font-weight: 1000;
+  line-height: 1;
+  color: #f5c66b08;
+  pointer-events: none;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero h2 {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 12px 0 18px;
+  font-size: clamp(2.1rem, 6vw, 3.8rem);
+  line-height: 1.12;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  max-width: 790px;
+  color: #dce5f2;
+  font-size: 1.08rem;
+}
+
+.buttons {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 17px;
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  background: var(--gold);
+  color: #172235;
+  font: inherit;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .2s, opacity .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: .92;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--line);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+  margin: 22px 0;
+}
+
+.card {
+  padding: 23px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: linear-gradient(155deg, var(--panel2), var(--panel));
+}
+
+.card-icon { font-size: 1.8rem; }
+
+.card h3 {
+  margin: 8px 0;
+  color: var(--gold);
+  font-size: 1.16rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.section { margin: 38px 0; }
+
+.section-title {
+  margin: 0 0 12px;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+}
+
+.section-intro { color: var(--muted); }
+
+.alliances {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 17px;
+  margin-top: 20px;
+}
+
+.alliance {
+  padding: 25px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: linear-gradient(145deg, #192c45, #111d2e);
+}
+
+.alliance-name {
+  color: var(--gold);
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.alliance p { color: var(--muted); }
+
+.schedule {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 23px;
+  border: 1px solid #426b5a;
+  border-radius: 17px;
+  background: linear-gradient(120deg, #17392f, #14253a);
+}
+
+.schedule-time {
+  color: var(--green);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 950;
+  white-space: nowrap;
+}
+
+.schedule p { margin: 0; color: #e0ece6; }
+
+.rules {
+  padding-left: 23px;
+  color: var(--muted);
+}
+
+.rules li { padding: 6px 0; }
+
+.quote {
+  margin: 35px 0;
+  padding: 22px 25px;
+  border-left: 4px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  background: #f5c66b0c;
+  color: #f5e8c8;
+  font-size: 1.1rem;
+}
+
+.migration {
+  padding: 27px;
+  border: 1px solid #455b79;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #192c45, #111b2c);
+}
+
+.migration h3 { color: var(--gold); }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 42px;
+  padding: 23px 0 30px;
+  border-top: 1px solid var(--line);
+  color: #91a2bb;
+  font-size: .85rem;
+}
+
+@media (max-width: 760px) {
+  header { align-items: flex-start; }
+  .grid, .alliances { grid-template-columns: 1fr; }
+  .schedule { align-items: flex-start; flex-direction: column; gap: 5px; }
+  .hero { padding: 27px 22px; }
+  .language-box { width: 100%; justify-content: space-between; }
+  .language-box select { flex: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <div class="brand">
+    <div class="logo">83</div>
+    <div>
+      <h1>ERA 83</h1>
+      <p data-i18n="subtitle">Una era. Dos alianzas. Un mismo objetivo.</p>
+    </div>
+  </div>
+
+  <label class="language-box">
+    <span data-i18n="language">Idioma</span>
+    <select id="language" aria-label="Language">
+      <option value="es">🇪🇸 Español</option>
+      <option value="en">🇬🇧 English</option>
+      <option value="fr">🇫🇷 Français</option>
+      <option value="de">🇩🇪 Deutsch</option>
+      <option value="it">🇮🇹 Italiano</option>
+      <option value="pt">🇵🇹 Português</option>
+      <option value="ru">🇷🇺 Русский</option>
+      <option value="uk">🇺🇦 Українська</option>
+      <option value="pl">🇵🇱 Polski</option>
+      <option value="tr">🇹🇷 Türkçe</option>
+      <option value="ar">🇸🇦 العربية</option>
+      <option value="zh">🇨🇳 简体中文</option>
+      <option value="ja">🇯🇵 日本語</option>
+      <option value="ko">🇰🇷 한국어</option>
+      <option value="vi">🇻🇳 Tiếng Việt</option>
+      <option value="th">🇹🇭 ไทย</option>
+      <option value="id">🇮🇩 Bahasa Indonesia</option>
+      <option value="hi">🇮🇳 हिन्दी</option>
+      <option value="nl">🇳🇱 Nederlands</option>
+      <option value="ro">🇷🇴 Română</option>
+    </select>
+  </label>
+</header>
+
+<main>
+<section class="hero">
+  <div class="eyebrow" data-i18n="eyebrow">AGE OF EMPIRES MOBILE · PRÓXIMA MIGRACIÓN</div>
+  <h2 data-i18n="welcomeTitle">¡Bienvenido a ERA 83!</h2>
+  <p class="hero-text" data-i18n="welcomeText">Este servidor se construye con respeto, actividad y trabajo en equipo. GLX y CRS avanzan codo a codo para fortalecer la comunidad, mejorar el servidor y crear un lugar donde cada jugador pueda aportar, crecer y disfrutar de la competición.</p>
+  <div class="buttons">
+    <a class="btn" href="#community" data-i18n="discover">Conoce nuestra comunidad</a>
+    <button class="btn secondary" id="copyBtn" type="button" data-i18n="copy">Copiar mensaje de bienvenida</button>
+  </div>
+</section>
+
+<section class="grid" aria-label="Server values">
+  <article class="card">
+    <div class="card-icon">🤝</div>
+    <h3 data-i18n="unityTitle">Unión y cooperación</h3>
+    <p data-i18n="unityText">GLX y CRS trabajan como aliados, coordinándose para que el servidor progrese y todos tengamos una base sólida.</p>
+  </article>
+  <article class="card">
+    <div class="card-icon">⚔️</div>
+    <h3 data-i18n="mgeTitle">MGE libre</h3>
+    <p data-i18n="mgeText">El MGE es una competición libre. Fomentamos el juego limpio, la comunicación y el respeto entre jugadores.</p>
+  </article>
+  <article class="card">
+    <div class="card-icon">🔥</div>
+    <h3 data-i18n="effortTitle">Esfuerzo diario</h3>
+    <p data-i18n="effortText">La actividad, la participación en eventos y el compromiso de cada miembro marcan la diferencia.</p>
+  </article>
+</section>
+
+<section class="section" id="community">
+  <h2 class="section-title" data-i18n="alliancesTitle">Dos alianzas, un mismo propósito</h2>
+  <p class="section-intro" data-i18n="alliancesIntro">No se trata solo de ganar batallas: queremos construir una comunidad estable, organizada y activa para la próxima migración y para el futuro del servidor.</p>
+
+  <div class="alliances">
+    <article class="alliance">
+      <div class="alliance-name">GLX</div>
+      <p data-i18n="glxText">Aliados comprometidos con la coordinación, la participación y el crecimiento del servidor.</p>
+    </article>
+    <article class="alliance">
+      <div class="alliance-name">CRS</div>
+      <p data-i18n="crsText">Una alianza activa que apuesta por el esfuerzo colectivo, la preparación y el apoyo mutuo.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title" data-i18n="eventsTitle">Horario de eventos</h2>
+  <div class="schedule">
+    <div class="schedule-time">19:00 UTC</div>
+    <p><strong data-i18n="defaultTime">Horario predeterminado del servidor</strong><br>
+    <span data-i18n="timeText">La hora indicada corresponde a la hora del juego. Consulta los anuncios de alianza por si algún evento tiene un horario especial.</span></p>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title" data-i18n="expectTitle">Lo que esperamos de cada jugador</h2>
+  <ul class="rules">
+    <li data-i18n="rule1">Respeto hacia todos los jugadores, independientemente de su idioma, origen o nivel de poder.</li>
+    <li data-i18n="rule2">Participación y comunicación: avisar, coordinarse y ayudar cuando sea posible.</li>
+    <li data-i18n="rule3">Compromiso diario con el crecimiento personal, la alianza y el servidor.</li>
+    <li data-i18n="rule4">Juego limpio y cooperación; los problemas se resuelven hablando con calma.</li>
+    <li data-i18n="rule5">Una comunidad fuerte se construye con constancia, confianza y esfuerzo compartido.</li>
+  </ul>
+</section>
+
+<section class="section migration">
+  <h2 class="section-title" data-i18n="migrationTitle">🚀 ¿Preparado para la próxima migración?</h2>
+  <p data-i18n="migrationText">GLX y CRS se preparan para recibir nuevos compañeros. Buscamos jugadores activos, comprometidos y con ganas de progresar, participar en eventos y construir una comunidad más fuerte.</p>
+  <p data-i18n="migrationText2">Invita a tus amigos y compañeros de juego a conocer ERA 83. Cada jugador puede marcar la diferencia.</p>
+</section>
+
+<div class="quote" data-i18n="motto">“La fuerza de un servidor no está solo en su poder, sino en la unión de sus jugadores. GLX y CRS: codo a codo, creciendo juntos.”</div>
+</main>
+
+<footer>
+  <span data-i18n="footer">ERA 83 · Age of Empires Mobile · Bienvenida para la próxima migración</span>
+  <span>Welcome Portal v1.0 · <span data-i18n="footer2">Archivo único index.html</span></span>
+</footer>
+
+</div>
+
+<script>
+const translations = {
+es: {
+subtitle:"Una era. Dos alianzas. Un mismo objetivo.",
+language:"Idioma",
+eyebrow:"AGE OF EMPIRES MOBILE · PRÓXIMA MIGRACIÓN",
+welcomeTitle:"¡Bienvenido a ERA 83!",
+welcomeText:"Este servidor se construye con respeto, actividad y trabajo en equipo. GLX y CRS avanzan codo a codo para fortalecer la comunidad, mejorar el servidor y crear un lugar donde cada jugador pueda aportar, crecer y disfrutar de la competición.",
+discover:"Conoce nuestra comunidad",
+copy:"Copiar mensaje de bienvenida",
+unityTitle:"Unión y cooperación",
+unityText:"GLX y CRS trabajan como aliados, coordinándose para que el servidor progrese y todos tengamos una base sólida.",
+mgeTitle:"MGE libre",
+mgeText:"El MGE es una competición libre. Fomentamos el juego limpio, la comunicación y el respeto entre jugadores.",
+effortTitle:"Esfuerzo diario",
+effortText:"La actividad, la participación en eventos y el compromiso de cada miembro marcan la diferencia.",
+alliancesTitle:"Dos alianzas, un mismo propósito",
+alliancesIntro:"No se trata solo de ganar batallas: queremos construir una comunidad estable, organizada y activa para la próxima migración y para el futuro del servidor.",
+glxText:"Aliados comprometidos con la coordinación, la participación y el crecimiento del servidor.",
+crsText:"Una alianza activa que apuesta por el esfuerzo colectivo, la preparación y el apoyo mutuo.",
+eventsTitle:"Horario de eventos",
+defaultTime:"Horario predeterminado del servidor",
+timeText:"La hora indicada corresponde a la hora del juego. Consulta los anuncios de alianza por si algún evento tiene un horario especial.",
+expectTitle:"Lo que esperamos de cada jugador",
+rule1:"Respeto hacia todos los jugadores, independientemente de su idioma, origen o nivel de poder.",
+rule2:"Participación y comunicación: avisar, coordinarse y ayudar cuando sea posible.",
+rule3:"Compromiso diario con el crecimiento personal, la alianza y el servidor.",
+rule4:"Juego limpio y cooperación; los problemas se resuelven hablando con calma.",
+rule5:"Una comunidad fuerte se construye con constancia, confianza y esfuerzo compartido.",
+migrationTitle:"🚀 ¿Preparado para la próxima migración?",
+migrationText:"GLX y CRS se preparan para recibir nuevos compañeros. Buscamos jugadores activos, comprometidos y con ganas de progresar, participar en eventos y construir una comunidad más fuerte.",
+migrationText2:"Invita a tus amigos y compañeros de juego a conocer ERA 83. Cada jugador puede marcar la diferencia.",
+motto:"“La fuerza de un servidor no está solo en su poder, sino en la unión de sus jugadores. GLX y CRS: codo a codo, creciendo juntos.”",
+footer:"ERA 83 · Age of Empires Mobile · Bienvenida para la próxima migración",
+footer2:"Archivo único index.html",
+copied:"¡Mensaje copiado!",
+copyFail:"No se pudo copiar automáticamente. Puedes copiar el texto manualmente."
+},
+
+en: {
+subtitle:"One era. Two alliances. One shared goal.",
+language:"Language",
+eyebrow:"AGE OF EMPIRES MOBILE · UPCOMING MIGRATION",
+welcomeTitle:"Welcome to ERA 83!",
+welcomeText:"This server is built on respect, activity, and teamwork. GLX and CRS work side by side to strengthen the community, improve the server, and create a place where every player can contribute, grow, and enjoy competition.",
+discover:"Meet our community",
+copy:"Copy welcome message",
+unityTitle:"Unity and cooperation",
+unityText:"GLX and CRS work as allies, coordinating to help the server progress and build a strong foundation for everyone.",
+mgeTitle:"Free MGE",
+mgeText:"MGE is an open competition. We encourage fair play, communication, and respect between players.",
+effortTitle:"Daily effort",
+effortText:"Activity, event participation, and every member's commitment make the difference.",
+alliancesTitle:"Two alliances, one purpose",
+alliancesIntro:"It's about more than winning battles: we want to build a stable, organised, active community for the upcoming migration and the server's future.",
+glxText:"Allies committed to coordination, participation, and server growth.",
+crsText:"An active alliance focused on collective effort, preparation, and mutual support.",
+eventsTitle:"Event schedule",
+defaultTime:"Default server schedule",
+timeText:"The time shown is the in-game time. Check alliance announcements for events with special schedules.",
+expectTitle:"What we expect from every player",
+rule1:"Respect all players, regardless of language, background, or power level.",
+rule2:"Participate and communicate: share information, coordinate, and help whenever possible.",
+rule3:"Commit daily to personal growth, your alliance, and the server.",
+rule4:"Play fairly and cooperate; resolve disagreements calmly.",
+rule5:"A strong community is built through consistency, trust, and shared effort.",
+migrationTitle:"🚀 Ready for the next migration?",
+migrationText:"GLX and CRS are preparing to welcome new teammates. We are looking for active, committed players who want to progress, join events, and build a stronger community.",
+migrationText2:"Invite your friends and fellow players to discover ERA 83. Every player can make a difference.",
+motto:"“A server's strength comes not only from its power, but from the unity of its players. GLX and CRS: side by side, growing together.”",
+footer:"ERA 83 · Age of Empires Mobile · Welcome for the next migration",
+footer2:"Single index.html file",
+copied:"Message copied!",
+copyFail:"Automatic copying failed. You can copy the text manually."
+},
+
+fr: {
+subtitle:"Une ère. Deux alliances. Un objectif commun.",
+language:"Langue",
+eyebrow:"AGE OF EMPIRES MOBILE · PROCHAINE MIGRATION",
+welcomeTitle:"Bienvenue dans ERA 83 !",
+welcomeText:"Ce serveur se construit grâce au respect, à l'activité et au travail d'équipe. GLX et CRS avancent côte à côte pour renforcer la communauté, améliorer le serveur et créer un espace où chaque joueur peut contribuer, progresser et apprécier la compétition.",
+discover:"Découvrir notre communauté",
+copy:"Copier le message de bienvenue",
+unityTitle:"Union et coopération",
+unityText:"GLX et CRS sont alliées et se coordonnent pour faire progresser le serveur et bâtir une base solide pour tous.",
+mgeTitle:"MGE libre",
+mgeText:"Le MGE est une compétition ouverte. Nous encourageons le fair-play, la communication et le respect entre joueurs.",
+effortTitle:"Effort quotidien",
+effortText:"L'activité, la participation aux événements et l'engagement de chaque membre font la différence.",
+alliancesTitle:"Deux alliances, un même objectif",
+alliancesIntro:"Il ne s'agit pas seulement de gagner des batailles : nous voulons bâtir une communauté stable, organisée et active pour la prochaine migration et l'avenir du serveur.",
+glxText:"Des alliés engagés dans la coordination, la participation et le développement du serveur.",
+crsText:"Une alliance active axée sur l'effort collectif, la préparation et l'entraide.",
+eventsTitle:"Horaires des événements",
+defaultTime:"Horaire de référence du serveur",
+timeText:"L'heure indiquée est l'heure du jeu. Consultez les annonces de votre alliance pour les événements aux horaires particuliers.",
+expectTitle:"Ce que nous attendons de chaque joueur",
+rule1:"Respecter tous les joueurs, quelle que soit leur langue, leur origine ou leur puissance.",
+rule2:"Participer et communiquer : informer, se coordonner et aider quand c'est possible.",
+rule3:"S'engager chaque jour dans sa progression, son alliance et le serveur.",
+rule4:"Jouer loyalement et coopérer ; résoudre les désaccords calmement.",
+rule5:"Une communauté forte se construit avec de la constance, de la confiance et des efforts partagés.",
+migrationTitle:"🚀 Prêt pour la prochaine migration ?",
+migrationText:"GLX et CRS se préparent à accueillir de nouveaux compagnons. Nous recherchons des joueurs actifs et motivés qui souhaitent progresser, participer aux événements et renforcer la communauté.",
+migrationText2:"Invitez vos amis et compagnons de jeu à découvrir ERA 83. Chaque joueur peut faire la différence.",
+motto:"« La force d'un serveur ne réside pas seulement dans sa puissance, mais dans l'unité de ses joueurs. GLX et CRS : côte à côte, grandissons ensemble. »",
+footer:"ERA 83 · Age of Empires Mobile · Accueil de la prochaine migration",
+footer2:"Fichier index.html unique",
+copied:"Message copié !",
+copyFail:"La copie automatique a échoué. Vous pouvez copier le texte manuellement."
+},
+
+de: {
+subtitle:"Eine Ära. Zwei Allianzen. Ein gemeinsames Ziel.",
+language:"Sprache",
+eyebrow:"AGE OF EMPIRES MOBILE · NÄCHSTE MIGRATION",
+welcomeTitle:"Willkommen in ERA 83!",
+welcomeText:"Dieser

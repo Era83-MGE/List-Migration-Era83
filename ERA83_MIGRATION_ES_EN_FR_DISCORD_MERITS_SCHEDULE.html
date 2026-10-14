@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+
+<title>ERA 83 | Age of Empires Mobile</title>
+
+<meta name="description"
+content="Bienvenido a ERA 83, un servidor de Age of Empires Mobile basado en la unión, el respeto, la actividad y el trabajo en equipo.">
+
+<style>
+:root {
+    --bg: #0b1120;
+    --panel: #141f33;
+    --panel2: #1b2940;
+    --gold: #f4c76b;
+    --gold2: #ffe5a1;
+    --text: #f3f6fc;
+    --muted: #b9c4d8;
+    --green: #6ee7a0;
+    --border: rgba(255,255,255,.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(ellipse at top, #263c5e 0%, transparent 55%),
+        var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+}
+
+button, select {
+    font: inherit;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(11,17,32,.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav {
+    max-width: 1150px;
+    margin: auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.brand {
+    font-weight: 900;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    color: var(--gold);
+}
+
+.brand span {
+    color: white;
+}
+
+.language {
+    background: var(--panel2);
+    color: white;
+    border: 1px solid var(--border);
+    padding: 9px 12px;
+    border-radius: 10px;
+    max-width: 180px;
+}
+
+main {
+    max-width: 1150px;
+    margin: auto;
+    padding: 30px 20px 60px;
+}
+
+.hero {
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 55px 20px;
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    background:
+        linear-gradient(135deg, rgba(244,199,107,.12), transparent 55%),
+        linear-gradient(180deg, rgba(28,43,68,.96), rgba(15,24,41,.96));
+    box-shadow: 0 25px 70px rgba(0,0,0,.25);
+}
+
+.emblem {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 3.2rem;
+    background: linear-gradient(145deg, #ffe5a1, #b77b23);
+    color: #172033;
+    border: 4px solid rgba(255,255,255,.2);
+    box-shadow: 0 0 40px rgba(244,199,107,.2);
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: .8rem;
+    margin-top: 25px;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    line-height: 1.08;
+    margin: 12px 0;
+}
+
+h1 span {
+    color: var(--gold);
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 720px;
+    font-size: 1.1rem;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 11px;
+    font-weight: bold;
+    transition: .2s;
+    display: inline-block;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: #172033;
+}
+
+.btn-secondary {
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.04);
+    color: white;
+}
+
+.btn-discord {
+    background: #5865F2;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.18);
+    box-shadow: 0 8px 24px rgba(88,101,242,.22);
+}
+.btn-discord:hover { background: #4752c4; }
+
+section {
+    margin-top: 45px;
+    scroll-margin-top: 90px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.section-title h2 {
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+    margin-bottom: 5px;
+}
+
+.section-title p {
+    color: var(--muted);
+    margin-top: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.card {
+    background: linear-gradient(145deg, var(--panel2), var(--panel));
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    padding: 23px;
+}
+
+.card-icon {
+    font-size: 2rem;
+}
+
+.card h3 {
+    color: var(--gold2);
+    margin: 10px 0;
+}
+
+.card p {
+    color: var(--muted);
+    margin-bottom: 0;
+}
+
+.alliance {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.alliance-card {
+    text-align: center;
+    padding: 28px 20px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.alliance-card h3 {
+    font-size: 2rem;
+    margin: 8px 0;
+    color: var(--gold);
+}
+
+.alliance-symbol {
+    font-size: 2.7rem;
+}
+
+.banner {
+    background: linear-gradient(120deg, #46371e, #1a2639 65%);
+    border: 1px solid rgba(244,199,107,.3);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+}
+
+.banner h2 {
+    color: var(--gold2);
+}
+
+.event-time {
+    display: inline-block;
+    padding: 9px 18px;
+    border-radius: 30px;
+    color: #142033;
+    background: var(--gold);
+    font-size: 1.15rem;
+    font-weight: 900;
+    margin-top: 8px;
+}
+
+.values {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.value {
+    padding: 18px 10px;
+    text-align: center;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    font-weight: bold;
+}
+
+.value span {
+    display: block;
+    font-size: 1.7rem;
+    margin-bottom: 5px;
+}
+
+footer {
+    text-align: center;
+    border-top: 1px solid var(--border);
+    padding: 28px 15px;
+    color: var(--muted);
+}
+
+footer strong {
+    color: var(--gold);
+}
+
+.small {
+    font-size: .85rem;
+    opacity: .8;
+}
+
+@media (max-width: 800px) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .values {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 540px) {
+    .nav {
+        padding: 12px;
+    }
+
+    .brand {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .language {
+        max-width: 155px;
+        font-size: .85rem;
+    }
+
+    main {
+        padding: 18px 12px 40px;
+    }
+
+    .hero {
+        min-height: 390px;
+        padding: 35px 17px;
+    }
+
+    .grid,
+    .alliance {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .banner {
+        padding: 24px 17px;
+    }
+}
+
+/* Registro de migración */
+.registration-wrap { margin-top: 45px; }
+.registration-panel { background: linear-gradient(145deg,var(--panel2),var(--panel)); border:1px solid var(--border); border-radius:18px; padding:clamp(18px,4vw,30px); }
+.registration-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.registration-field { display:flex; flex-direction:column; gap:6px; }
+.registration-field.full { grid-column:1/-1; }
+.registration-field label { font-weight:700; color:var(--gold2); }
+.registration-field input, .registration-field select, .registration-field button, .registration-panel input { width:100%; border:1px solid var(--border); border-radius:10px; padding:12px; color:var(--text); background:#0f192a; }
+.registration-field input:focus, .registration-field select:focus { outline:2px solid var(--gold); outline-offset:1px; }
+.registration-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+.registration-actions button { border:0; border-radius:10px; padding:12px 17px; font-weight:800; cursor:pointer; }
+.registration-actions .primary { background:var(--gold); color:#172033; }
+.registration-actions .secondary { background:var(--panel2); color:var(--text); border:1px solid var(--border); }
+.status-message { margin-top:14px; padding:12px 14px; border-radius:10px; display:none; overflow-wrap:anywhere; }
+.status-message.show { display:block; }
+.status-message.ok { background:rgba(110,231,160,.12); border:1px solid rgba(110,231,160,.45); }
+.status-message.error { background:rgba(255,100,100,.12); border:1px solid rgba(255,100,100,.45); }
+.secret-box { margin-top:14px; padding:15px; border:1px dashed var(--gold); border-radius:12px; display:none; overflow-wrap:anywhere; }
+.secret-box.show { display:block; }
+.secret-box code { color:var(--gold2); word-break:break-all; }
+.roster-toolbar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin:24px 0 12px; }
+.roster-toolbar select { background:#0f192a; color:var(--text); border:1px solid var(--border); border-radius:9px; padding:9px; }
+.roster-list { display:grid; gap:12px; }
+.roster-category { border:1px solid var(--border); border-radius:13px; overflow:hidden; background:rgba(10,16,29,.45); }
+.roster-category h3 { margin:0; padding:12px 15px; color:var(--gold2); background:rgba(255,255,255,.04); display:flex; justify-content:space-between; gap:10px; }
+.roster-table-wrap { overflow-x:auto; }
+.roster-table { width:100%; border-collapse:collapse; min-width:700px; }
+.roster-table th,.roster-table td { text-align:left; padding:10px 13px; border-top:1px solid var(--border); }
+.roster-table th { color:var(--muted); font-size:.85rem; }
+.roster-empty { color:var(--muted); padding:14px; }
+.access-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px; margin-top:14px; }
+.access-row button { background:var(--gold); color:#172033; border:0; border-radius:10px; padding:10px 15px; font-weight:800; cursor:pointer; }
+.danger-zone { margin-top:25px; padding-top:20px; border-top:1px solid var(--border); }
+@media(max-width:540px){ .registration-grid{grid-template-columns:1fr}.registration-field.full{grid-column:auto}.access-row{grid-template-columns:1fr}.roster-toolbar{align-items:flex-start;flex-direction:column} }
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+        <div class="brand">ERA <span>83</span></div>
+
+        <select class="language" id="languageSelect"
+                aria-label="Seleccionar idioma">
+        </select>
+    </div>
+</header>
+
+<main>
+
+    <section class="hero" id="inicio">
+        <div class="emblem">🏰</div>
+
+        <div class="eyebrow" data-i18n="eyebrow">
+            Age of Empires Mobile
+        </div>
+
+        <h1>ERA <span>83</span></h1>
+
+        <h2 data-i18n="welcome">
+            ¡Bienvenido a nuestro servidor!
+        </h2>
+
+        <p data-i18n="heroText">
+            Un servidor que crece gracias a sus jugadores, donde la unión,
+            el compromiso y el trabajo en equipo marcan la diferencia.
+        </p>
+
+        <div class="actions">
+            <a class="btn btn-primary" href="#servidor"
+               data-i18n="explore">Conoce nuestro servidor</a>
+
+            <a class="btn btn-secondary" href="#alianzas"
+               data-i18n="alliancesButton">Nuestras alianzas</a>
+            <a class="btn btn-discord" href="https://discord.gg/FFacww7b4c" target="_blank" rel="noopener noreferrer" data-i18n="discordButton" aria-label="Unirse al Discord de ERA 83">💬 Discord</a>
+        </div>
+    </section>
+
+    <section id="servidor">
+        <div class="section-title">
+            <h2 data-i18n="aboutTitle">Un servidor, un objetivo</h2>
+            <p data-i18n="aboutSubtitle">
+                Construimos nuestro futuro trabajando juntos.
+            </p>
+        </div>
+
+        <div class="grid">
+            <article class="card">
+                <div class="card-icon">⚔️</div>
+                <h3 data-i18n="warTitle">Actividad y guerra</h3>
+                <p data-i18n="warText">
+                    Participamos, nos organizamos y colaboramos para
+                    defender nuestros intereses y fortalecer el servidor.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">🤝</div>
+                <h3 data-i18n="teamTitle">Trabajo en equipo</h3>
+                <p data-i18n="teamText">
+                    La cooperación entre jugadores y alianzas nos permite
+                    superar retos y alcanzar objetivos comunes.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">🏆</div>
+                <h3 data-i18n="growthTitle">Progreso y crecimiento</h3>
+                <p data-i18n="growthText">
+                    Cada jugador cuenta. La constancia diaria y la
+                    participación ayudan a construir un servidor más fuerte.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section id="alianzas">
+        <div class="section-title">
+            <h2 data-i18n="alliancesTitle">Unión entre alianzas</h2>
+            <p data-i18n="alliancesSubtitle">
+                Diferentes alianzas, objetivos compartidos.
+            </p>
+        </div>
+
+        <div class="alliance">
+            <div class="alliance-card">
+                <div class="alliance-symbol">🛡️</div>
+                <h3>CRs</h3>
+                <p data-i18n="crsText">
+                    CRs es una alianza activa que lucha y trabaja por ERA 83.
+                    Seguimos creciendo y buscamos jugadores activos y comprometidos
+                    que quieran participar, colaborar y avanzar con nosotros.
+                </p>
+            </div>
+
+            <div class="alliance-card">
+                <div class="alliance-symbol">⚜️</div>
+                <h3>GLX</h3>
+                <p data-i18n="glxText">
+                    GLX es nuestro aliado. Compartimos respeto, coordinación
+                    y camaradería, trabajando juntos por el futuro de ERA 83.
+                </p>
+            </div>
+        </div>
+
+        <div class="banner" style="margin-top:18px">
+            <h2 data-i18n="unityTitle">Unidos somos más fuertes</h2>
+            <p data-i18n="unityText">
+                CRs y GLX trabajan codo con codo para mejorar ERA 83.
+                La coordinación, el respeto y la colaboración son
+                fundamentales para nuestro futuro.
+            </p>
+        </div>
+    </section>
+
+    <section id="eventos">
+        <div class="section-title">
+            <h2 data-i18n="eventsTitle">Eventos y organización</h2>
+            <p data-i18n="eventsSubtitle">
+                La coordinación es la clave del éxito.
+            </p>
+        </div>
+
+        <div class="grid">
+            <article class="card">
+                <div class="card-icon">🕖</div>
+                <h3 data-i18n="scheduleTitle">Hora de los eventos</h3>
+                <p data-i18n="scheduleText">
+                    Como referencia general, los eventos organizados
+                    del servidor comienzan a las 19:00 UTC.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">👑</div>
+                <h3>MGE</h3>
+                <p data-i18n="mgeText">
+                    MGE libre. Cada jugador puede competir siguiendo
+                    las condiciones y los acuerdos vigentes del servidor.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">📣</div>
+                <h3 data-i18n="communicationTitle">Comunicación</h3>
+                <p data-i18n="communicationText">
+                    Mantente informado mediante los anuncios de tu
+                    alianza y los canales de comunicación del servidor.
+                </p>
+            </article>
+        </div>
+
+        <div class="banner" style="margin-top:18px">
+            <h2 data-i18n="timeTitle">Horario de referencia</h2>
+            <p data-i18n="timeText">
+                Hora del juego: consulta los anuncios oficiales para
+                confirmar los horarios de cada actividad.
+            </p>
+            <div class="event-time">19:00 UTC</div>
+        </div>
+    </section>
+
+    <section id="valores">
+        <div class="section-title">
+            <h2 data-i18n="valuesTitle">Los valores de ERA 83</h2>
+            <p data-i18n="valuesSubtitle">
+                El servidor que queremos construir depende de todos.
+            </p>
+        </div>
+
+        <div class="values">
+            <div class="value">
+                <span>🤝</span>
+                <div data-i18n="value1">Respeto</div>
+            </div>
+
+            <div class="value">
+                <span>🔥</span>
+                <div data-i18n="value2">Actividad</div>
+            </div>
+
+            <div class="value">
+                <span>🎯</span>
+                <div data-i18n="value3">Compromiso</div>
+            </div>
+
+            <div class="value">
+                <span>🏰</span>
+                <div data-i18n="value4">Unidad</div>
+            </div>
+
+            <div class="value">
+                <span>💪</span>
+                <div data-i18n="value5">Esfuerzo diario</div>
+            </div>
+
+            <div class="value">
+                <span>🧭</span>
+                <div data-i18n="value6">Organización</div>
+            </div>
+
+            <div class="value">
+                <span>🌍</span>
+                <div data-i18n="value7">Colaboración</div>
+            </div>
+
+            <div class="value">
+                <span>⭐</span>
+                <div data-i18n="value8">Mejora continua</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="futuro">
+        <div class="banner">
+            <h2 data-i18n="futureTitle">El futuro de ERA 83</h2>
+
+            <p data-i18n="futureText">
+                Seguimos creciendo y preparando los próximos desafíos.
+                Queremos contar con jugadores activos, respetuosos y
+                comprometidos que deseen formar parte de un proyecto común.
+            </p>
+
+            <p data-i18n="finalMessage">
+                Tu participación también puede marcar la diferencia.
+                Construyamos juntos un servidor más fuerte.
+            </p>
+        </div>
+    </section>
+
+
+    <section id="registro" class="registration-wrap">
+        <div class="section-title">
+            <h2 data-i18n="regTitle">Registro de migración</h2>
+            <p data-i18n="regSubtitle">Inscríbete para que las alianzas puedan organizar la próxima migración.</p>
+        </div>
+        <div class="registration-panel">
+            <div id="inviteGate">
+                <p data-i18n="inviteIntro">Introduce el código de invitación compartido para consultar la lista y registrar tu jugador.</p>
+                <div class="access-row">
+                    <input id="inviteCodeInput" type="password" autocomplete="off" data-i18n-placeholder="invitePlaceholder" placeholder="Código de invitación">
+                    <button id="unlockButton" type="button" data-i18n="unlockButton">Entrar</button>
+                </div>
+            </div>
+            <div id="registrationContent" hidden>
+                <form id="signupForm">
+                    <div class="registration-grid">
+                        <div class="registration-field">
+                            <label for="playerName" data-i18n="playerNameLabel">Nombre dentro del juego</label>
+                            <input id="playerName" name="playerName" maxlength="40" required autocomplete="nickname" data-i18n-placeholder="playerNamePlaceholder" placeholder="Nombre exacto del jugador">
+                        </div>
+                        <div class="registration-field">
+                            <label for="currentEra" data-i18n="currentEraLabel">Era / servidor actual</label>
+                            <input id="currentEra" name="currentEra" maxlength="20" required data-i18n-placeholder="currentEraPlaceholder" placeholder="Ej.: Era 261">
+                        </div>
+                        <div class="registration-field full">
+                            <label for="powerM" data-i18n="powerLabel">Poder (millones)</label>
+                            <input id="powerM" name="powerM" type="number" min="0" max="1000000" step="1" inputmode="numeric" pattern="[0-9]*" required data-i18n-placeholder="powerPlaceholder" placeholder="Ej.: 145">
+                        </div>
+                        <div class="registration-field">
+                            <label for="merits" data-i18n="meritsLabel">Méritos</label>
+                            <input id="merits" name="merits" type="number" min="0" max="1000000000" step="1" inputmode="numeric" required data-i18n-placeholder="meritsPlaceholder" placeholder="Ej.: 5000000">
+                        </div>
+                        <div class="registration-field">
+                            <label for="preferredSchedule" data-i18n="scheduleLabel">Horario preferido en el juego</label>
+                            <select id="preferredSchedule" name="preferredSchedule" required>
+                                <option value="" data-i18n="scheduleChoose">Selecciona un horario</option>
+                                <option value="morning" data-i18n="scheduleMorning">Mañana (00:00–12:00 UTC)</option>
+                                <option value="afternoon" data-i18n="scheduleAfternoon">Tarde (12:00–18:00 UTC)</option>
+                                <option value="evening" data-i18n="scheduleEvening">Noche (18:00–24:00 UTC)</option>
+                                <option value="variable" data-i18n="scheduleVariable">Horario variable</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="registration-actions">
+                        <button class="primary" type="submit" id="signupButton" data-i18n="signupButton">Inscribirme</button>
+                        <button class="secondary" type="button" id="refreshButton" data-i18n="refreshButton">Actualizar lista</button>
+                    </div>
+                </form>
+                <div id="signupStatus" class="status-message" role="status" aria-live="polite"></div>
+                <div id="deleteTokenBox" class="secret-box" role="status">
+                    <strong data-i18n="deleteTokenTitle">Guarda tu código privado de eliminación</strong>
+                    <p data-i18n="deleteTokenWarning">Se muestra ahora. Guárdalo en un lugar seguro para poder borrar tu inscripción después.</p>
+                    <code id="deleteTokenValue"></code>
+                </div>
+
+                <div class="roster-toolbar">
+                    <h3 data-i18n="rosterTitle">Lista compartida de inscritos</h3>
+                    <label><span data-i18n="filterLabel">Filtrar categoría:</span>
+                        <select id="categoryFilter">
+                            <option value="all" data-i18n="filterAll">Todas</option>
+                            <option value="Mythic">Mythic</option><option value="Legend">Legend</option><option value="Hero">Hero</option><option value="Master">Master</option><option value="Elite">Elite</option><option value="Vanguard">Vanguard</option>
+                        </select>
+                    </label>
+                </div>
+                <p id="rosterSummary" class="small" data-i18n="rosterLoading">Cargando inscritos…</p>
+                <div id="rosterList" class="roster-list"></div>
+
+                <div class="danger-zone">
+                    <h3 data-i18n="deleteOwnTitle">Eliminar mi inscripción</h3>
+                    <p data-i18n="deleteOwnText">Introduce el código privado que recibiste al inscribirte.</p>
+                    <div class="access-row">
+                        <input id="deleteTokenInput" type="password" autocomplete="off" data-i18n-placeholder="deleteTokenPlaceholder" placeholder="Código privado de eliminación">
+                        <button id="deleteOwnButton" type="button" data-i18n="deleteOwnButton">Eliminar mi inscripción</button>
+                    </div>
+                </div>
+                <div class="danger-zone">
+                    <h3 data-i18n="adminTitle">Administración</h3>
+                    <p data-i18n="adminText">Zona para responsables: permite eliminar una inscripción por su ID usando el código de administrador.</p>
+                    <div class="registration-grid">
+                        <div class="registration-field">
+                            <label for="adminCodeInput" data-i18n="adminCodeLabel">Código de administrador</label>
+                            <input id="adminCodeInput" type="password" autocomplete="off" data-i18n-placeholder="adminCodePlaceholder" placeholder="Código de administrador">
+                        </div>
+                        <div class="registration-field">
+                            <label for="adminSignupId" data-i18n="adminIdLabel">ID de inscripción</label>
+                            <input id="adminSignupId" type="text" autocomplete="off" data-i18n-placeholder="adminIdPlaceholder" placeholder="UUID de la inscripción">
+                        </div>
+                    </div>
+                    <div class="registration-actions"><button class="secondary" type="button" id="adminDeleteButton" data-i18n="adminDeleteButton">Eliminar por ID</button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <strong>ERA 83</strong>
+    <p data-i18n="footerText">
+        Unión, estrategia y trabajo en equipo.
+    </p>
+    <div class="small">
+        Age of Empires Mobile · <span data-i18n="fanPage">Página comunitaria no oficial</span>
+    </div>
+</footer>
+
+<script>
+const API_URL = "https://jlrrlwwxsubpqkfimhsv.supabase.co/functions/v1/dynamic-processor";
+const SUPABASE_PUBLIC_KEY = "sb_publishable_ECXb7Y4Q7f7WGtnCEYQU4Q_fogWQIff";
+const languages = [
+  ["es","Español"],["en","English"],["fr","Français"]
+];
+
+const baseES = {
+ eyebrow:"Age of Empires Mobile",welcome:"¡Bienvenido a nuestro servidor!",heroText:"Un servidor que crece gracias a sus jugadores, donde la unión, el compromiso y el trabajo en equipo marcan la diferencia.",explore:"Conoce nuestro servidor",alliancesButton:"Nuestras alianzas",aboutTitle:"Un servidor, un objetivo",aboutSubtitle:"Construimos nuestro futuro trabajando juntos.",warTitle:"Actividad y guerra",warText:"Participamos, nos organizamos y colaboramos para defender nuestros intereses y fortalecer el servidor.",teamTitle:"Trabajo en equipo",teamText:"La cooperación entre jugadores y alianzas nos permite superar retos y alcanzar objetivos comunes.",growthTitle:"Progreso y crecimiento",growthText:"Cada jugador cuenta. La constancia diaria y la participación ayudan a construir un servidor más fuerte.",alliancesTitle:"Unión entre alianzas",alliancesSubtitle:"Diferentes alianzas, objetivos compartidos.",crsText:"CRs es actualmente la segunda alianza de ERA 83 y necesita nuevos jugadores activos. Seguimos creciendo y buscamos personas comprometidas que quieran luchar, participar y progresar con nosotros. Junto a GLX trabajamos cada día con compañerismo, respeto y esfuerzo; ambas alianzas colaboran por igual para fortalecer el servidor.",glxText:"GLX es actualmente la primera alianza de ERA 83. Sus jugadores destacan por su actividad y esfuerzo diario. Junto a CRs comparte compañerismo, respeto y compromiso; ambas alianzas trabajan por igual y colaboran para construir un servidor más fuerte.",unityTitle:"Unidos somos más fuertes",unityText:"CRs y GLX trabajan codo con codo para mejorar ERA 83. La coordinación, el respeto y la colaboración son fundamentales para nuestro futuro.",eventsTitle:"Eventos y organización",eventsSubtitle:"La coordinación es la clave del éxito.",scheduleTitle:"Hora de los eventos",scheduleText:"Como referencia general, los eventos organizados del servidor comienzan a las 19:00 UTC.",mgeText:"MGE libre. Cada jugador puede competir siguiendo las condiciones y los acuerdos vigentes del servidor.",communicationTitle:"Comunicación",communicationText:"Mantente informado mediante los anuncios de tu alianza y los canales de comunicación del servidor.",timeTitle:"Horario de referencia",timeText:"Hora del juego: consulta los anuncios oficiales para confirmar los horarios de cada actividad.",valuesTitle:"Los valores de ERA 83",valuesSubtitle:"El servidor que queremos construir depende de todos.",value1:"Respeto",value2:"Actividad",value3:"Compromiso",value4:"Unidad",value5:"Esfuerzo diario",value6:"Organización",value7:"Colaboración",value8:"Mejora continua",futureTitle:"El futuro de ERA 83",futureText:"Seguimos creciendo y preparando los próximos desafíos. Queremos contar con jugadores activos, respetuosos y comprometidos que deseen formar parte de un proyecto común.",finalMessage:"Tu participación también puede marcar la diferencia. Construyamos juntos un servidor más fuerte.",footerText:"Unión, estrategia y trabajo en equipo.",fanPage:"Página comunitaria no oficial",
+ regTitle:"Registro de migración",regSubtitle:"Inscríbete para que las alianzas puedan organizar la próxima migración.",inviteIntro:"Introduce el código de invitación compartido para consultar la lista y registrar tu jugador.",invitePlaceholder:"Código de invitación",unlockButton:"Entrar",playerNameLabel:"Nombre dentro del juego",playerNamePlaceholder:"Nombre exacto del jugador",currentEraLabel:"Era / servidor actual",currentEraPlaceholder:"Ej.: Era 261",powerLabel:"Poder (millones)",powerPlaceholder:"Ej.: 145",meritsLabel:"Méritos",meritsPlaceholder:"Ej.: 5000000",scheduleLabel:"Horario preferido en el juego",scheduleChoose:"Selecciona un horario",scheduleMorning:"Mañana (00:00–12:00 UTC)",scheduleAfternoon:"Tarde (12:00–18:00 UTC)",scheduleEvening:"Noche (18:00–24:00 UTC)",scheduleVariable:"Horario variable",discordButton:"💬 Unirse a Discord",colMerits:"Méritos",colSchedule:"Horario",signupButton:"Inscribirme",refreshButton:"Actualizar lista",deleteTokenTitle:"Guarda tu código privado de eliminación",deleteTokenWarning:"Se muestra ahora. Guárdalo en un lugar seguro para poder borrar tu inscripción después.",rosterTitle:"Lista compartida de inscritos",filterLabel:"Filtrar categoría:",filterAll:"Todas",rosterLoading:"Cargando inscritos…",deleteOwnTitle:"Eliminar mi inscripción",deleteOwnText:"Introduce el código privado que recibiste al inscribirte.",deleteTokenPlaceholder:"Código privado de eliminación",deleteOwnButton:"Eliminar mi inscripción",adminTitle:"Administración",adminText:"Zona para responsables: permite eliminar una inscripción por su ID usando el código de administrador.",adminCodeLabel:"Código de administrador",adminCodePlaceholder:"Código de administrador",adminIdLabel:"ID de inscripción",adminIdPlaceholder:"UUID de la inscripción",adminDeleteButton:"Eliminar por ID",categoryMythic:"Mítico",categoryLegend:"Leyenda",categoryHero:"Héroe",categoryMaster:"Maestro",categoryElite:"Élite",categoryVanguard:"Vanguardia",colName:"Jugador",colEra:"Era actual",colPower:"Poder (M)",colId:"ID de inscripción",loading:"Procesando…",inviteRequired:"Introduce el código de invitación.",apiError:"No se pudo completar la operación. Comprueba la conexión e inténtalo de nuevo.",inviteAccepted:"Acceso concedido. Lista compartida cargada.",signupSuccess:"Inscripción guardada correctamente.",deleteSuccess:"Inscripción eliminada correctamente.",adminDeleteSuccess:"Inscripción eliminada por administración.",emptyRoster:"Todavía no hay inscripciones.",rosterCount:"Inscripciones",powerError:"Introduce un poder entero en millones, entre 0 y 1.000.000.",detailsError:"Introduce méritos válidos y selecciona tu horario preferido.",tokenMissing:"Introduce tu código privado de eliminación.",adminMissing:"Completa el código de administrador y el ID de inscripción.",confirmDelete:"¿Seguro que quieres eliminar tu inscripción? Esta acción no se puede deshacer.",confirmAdminDelete:"¿Confirmas que quieres eliminar esta inscripción?",tokenNotReturned:"La inscripción se guardó, pero el servidor no devolvió el código privado. Contacta con la administración antes de cerrar esta página.",copied:"Código copiado",languageLabel:"Seleccionar idioma"
+};
+const baseEN = {
+ eyebrow:"Age of Empires Mobile",welcome:"Welcome to our server!",heroText:"A server that grows through its players, where unity, commitment and teamwork make the difference.",explore:"Discover our server",alliancesButton:"Our alliances",aboutTitle:"One server, one goal",aboutSubtitle:"We build our future by working together.",warTitle:"Activity and warfare",warText:"We participate, organize and cooperate to defend our interests and strengthen the server.",teamTitle:"Teamwork",teamText:"Cooperation between players and alliances helps us overcome challenges and reach common goals.",growthTitle:"Progress and growth",growthText:"Every player matters. Daily consistency and participation help build a stronger server.",alliancesTitle:"Alliance unity",alliancesSubtitle:"Different alliances, shared goals.",crsText:"CRs is currently ERA 83’s second alliance and is looking for active players. We welcome committed players who want to fight, participate and progress with us. Alongside GLX, we work every day with camaraderie, respect and effort; both alliances contribute equally to strengthening the server.",glxText:"GLX is currently ERA 83’s top alliance. Its players show daily activity and effort. Alongside CRs, GLX shares camaraderie, respect and commitment; both alliances work as equals and cooperate to build a stronger server.",unityTitle:"Together we are stronger",unityText:"CRs and GLX work side by side to improve ERA 83. Coordination, respect and cooperation are essential to our future.",eventsTitle:"Events and organization",eventsSubtitle:"Coordination is the key to success.",scheduleTitle:"Event times",scheduleText:"As a general reference, organized server events start at 19:00 UTC.",mgeText:"MGE is free. Players can compete according to the server's current rules and agreements.",communicationTitle:"Communication",communicationText:"Stay informed through your alliance announcements and the server's communication channels.",timeTitle:"Reference schedule",timeText:"Game time: check official announcements to confirm the schedule of each activity.",valuesTitle:"The values of ERA 83",valuesSubtitle:"The server we want to build depends on everyone.",value1:"Respect",value2:"Activity",value3:"Commitment",value4:"Unity",value5:"Daily effort",value6:"Organization",value7:"Cooperation",value8:"Continuous improvement",futureTitle:"The future of ERA 83",futureText:"We continue to grow and prepare for upcoming challenges. We welcome active, respectful and committed players who want to be part of a shared project.",finalMessage:"Your participation can make a difference. Let's build a stronger server together.",footerText:"Unity, strategy and teamwork.",fanPage:"Unofficial community page",
+ regTitle:"Migration registration",regSubtitle:"Sign up so the alliances can organize the next migration.",inviteIntro:"Enter the shared invitation code to view the list and register your player.",invitePlaceholder:"Invitation code",unlockButton:"Enter",playerNameLabel:"In-game name",playerNamePlaceholder:"Exact player name",currentEraLabel:"Current era / server",currentEraPlaceholder:"E.g. Era 261",powerLabel:"Power (millions)",powerPlaceholder:"E.g. 145",meritsLabel:"Merits",meritsPlaceholder:"E.g. 5000000",scheduleLabel:"Preferred in-game schedule",scheduleChoose:"Choose a schedule",scheduleMorning:"Morning (00:00–12:00 UTC)",scheduleAfternoon:"Afternoon (12:00–18:00 UTC)",scheduleEvening:"Evening (18:00–24:00 UTC)",scheduleVariable:"Variable schedule",discordButton:"💬 Join Discord",colMerits:"Merits",colSchedule:"Schedule",signupButton:"Register",refreshButton:"Refresh list",deleteTokenTitle:"Save your private deletion token",deleteTokenWarning:"It is shown now. Save it somewhere safe so you can delete your registration later.",rosterTitle:"Shared registration list",filterLabel:"Filter category:",filterAll:"All",rosterLoading:"Loading registrations…",deleteOwnTitle:"Delete my registration",deleteOwnText:"Enter the private token you received when registering.",deleteTokenPlaceholder:"Private deletion token",deleteOwnButton:"Delete my registration",adminTitle:"Administration",adminText:"For administrators: delete a registration by its ID using the administrator code.",adminCodeLabel:"Administrator code",adminCodePlaceholder:"Administrator code",adminIdLabel:"Registration ID",adminIdPlaceholder:"Registration UUID",adminDeleteButton:"Delete by ID",categoryMythic:"Mythic",categoryLegend:"Legend",categoryHero:"Hero",categoryMaster:"Master",categoryElite:"Elite",categoryVanguard:"Vanguard",colName:"Player",colEra:"Current era",colPower:"Power (M)",colId:"Registration ID",loading:"Working…",inviteRequired:"Enter the invitation code.",apiError:"The operation failed. Check your connection and try again.",inviteAccepted:"Access granted. Shared list loaded.",signupSuccess:"Registration saved successfully.",deleteSuccess:"Registration deleted successfully.",adminDeleteSuccess:"Registration deleted by an administrator.",emptyRoster:"There are no registrations yet.",rosterCount:"Registrations",powerError:"Enter a whole-number power in millions, between 0 and 1,000,000.",detailsError:"Enter valid merits and choose your preferred schedule.",tokenMissing:"Enter your private deletion token.",adminMissing:"Enter both the administrator code and registration ID.",confirmDelete:"Are you sure you want to delete your registration? This cannot be undone.",confirmAdminDelete:"Confirm deletion of this registration?",tokenNotReturned:"Registration was saved, but the server did not return a private token. Contact an administrator before closing this page.",copied:"Token copied",languageLabel:"Select language"
+};
+const baseFR = {
+ eyebrow:"Age of Empires Mobile",welcome:"Bienvenue sur notre serveur !",heroText:"Un serveur qui grandit grâce à ses joueurs, où l'unité, l'engagement et le travail d'équipe font la différence.",explore:"Découvrir le serveur",alliancesButton:"Nos alliances",aboutTitle:"Un serveur, un objectif",aboutSubtitle:"Construisons notre avenir ensemble.",warTitle:"Activité et guerre",warText:"Nous participons, nous organisons et nous coopérons pour défendre nos intérêts et renforcer le serveur.",teamTitle:"Travail d'équipe",teamText:"La coopération entre joueurs et alliances nous aide à relever les défis et à atteindre des objectifs communs.",growthTitle:"Progrès et croissance",growthText:"Chaque joueur compte. La régularité et la participation renforcent le serveur.",alliancesTitle:"Union des alliances",alliancesSubtitle:"Des alliances différentes, des objectifs communs.",crsText:"CRs est actuellement la deuxième alliance d’ERA 83 et recherche des joueurs actifs. Nous accueillons les joueurs engagés qui souhaitent combattre, participer et progresser avec nous. Avec GLX, nous travaillons chaque jour dans un esprit de camaraderie, de respect et d’effort ; les deux alliances contribuent à égalité à renforcer le serveur.",glxText:"GLX est actuellement la première alliance d’ERA 83. Ses joueurs se distinguent par leur activité et leurs efforts quotidiens. Avec CRs, GLX partage la camaraderie, le respect et l’engagement ; les deux alliances travaillent à égalité et coopèrent pour bâtir un serveur plus fort.",unityTitle:"Ensemble, nous sommes plus forts",unityText:"CRs et GLX travaillent côte à côte pour améliorer ERA 83. La coordination, le respect et la coopération sont essentiels.",eventsTitle:"Événements et organisation",eventsSubtitle:"La coordination est la clé du succès.",scheduleTitle:"Horaires des événements",scheduleText:"En règle générale, les événements organisés du serveur commencent à 19 h UTC.",mgeText:"MGE libre. Les joueurs peuvent participer selon les règles et accords en vigueur.",communicationTitle:"Communication",communicationText:"Consultez les annonces de votre alliance et les canaux de communication du serveur.",timeTitle:"Horaire de référence",timeText:"Consultez les annonces officielles pour confirmer les horaires.",valuesTitle:"Les valeurs d'ERA 83",valuesSubtitle:"Le serveur que nous voulons construire dépend de tous.",value1:"Respect",value2:"Activité",value3:"Engagement",value4:"Unité",value5:"Effort quotidien",value6:"Organisation",value7:"Coopération",value8:"Amélioration continue",futureTitle:"L'avenir d'ERA 83",futureText:"Nous continuons à grandir et à préparer les prochains défis. Nous accueillons les joueurs actifs, respectueux et engagés.",finalMessage:"Votre participation peut faire la différence. Construisons ensemble un serveur plus fort.",footerText:"Union, stratégie et travail d'équipe.",fanPage:"Page communautaire non officielle",
+ regTitle:"Inscription à la migration",regSubtitle:"Inscrivez-vous pour aider les alliances à organiser la prochaine migration.",inviteIntro:"Saisissez le code d'invitation partagé pour consulter la liste et inscrire votre joueur.",invitePlaceholder:"Code d'invitation",unlockButton:"Entrer",playerNameLabel:"Nom dans le jeu",playerNamePlaceholder:"Nom exact du joueur",currentEraLabel:"Ère / serveur actuel",currentEraPlaceholder:"Ex. : Ère 261",powerLabel:"Puissance (millions)",powerPlaceholder:"Ex. : 145",meritsLabel:"Mérites",meritsPlaceholder:"Ex. : 5000000",scheduleLabel:"Horaire préféré dans le jeu",scheduleChoose:"Choisissez un horaire",scheduleMorning:"Matin (00:00–12:00 UTC)",scheduleAfternoon:"Après-midi (12:00–18:00 UTC)",scheduleEvening:"Soir (18:00–24:00 UTC)",scheduleVariable:"Horaire variable",discordButton:"💬 Rejoindre Discord",colMerits:"Mérites",colSchedule:"Horaire",signupButton:"M'inscrire",refreshButton:"Actualiser la liste",deleteTokenTitle:"Conservez votre code privé de suppression",deleteTokenWarning:"Il est affiché maintenant. Conservez-le pour supprimer votre inscription plus tard.",rosterTitle:"Liste partagée des inscrits",filterLabel:"Filtrer par catégorie :",filterAll:"Toutes",rosterLoading:"Chargement des inscriptions…",deleteOwnTitle:"Supprimer mon inscription",deleteOwnText:"Saisissez le code privé reçu lors de l'inscription.",deleteTokenPlaceholder:"Code privé de suppression",deleteOwnButton:"Supprimer mon inscription",adminTitle:"Administration",adminText:"Pour les responsables : supprimer une inscription par son identifiant avec le code administrateur.",adminCodeLabel:"Code administrateur",adminCodePlaceholder:"Code administrateur",adminIdLabel:"Identifiant de l'inscription",adminIdPlaceholder:"UUID de l'inscription",adminDeleteButton:"Supprimer par ID",categoryMythic:"Mythique",categoryLegend:"Légende",categoryHero:"Héros",categoryMaster:"Maître",categoryElite:"Élite",categoryVanguard:"Avant-garde",colName:"Joueur",colEra:"Ère actuelle",colPower:"Puissance (M)",colId:"ID d'inscription",loading:"Traitement…",inviteRequired:"Saisissez le code d'invitation.",apiError:"Impossible de terminer l'opération. Vérifiez votre connexion.",inviteAccepted:"Accès accordé. Liste chargée.",signupSuccess:"Inscription enregistrée.",deleteSuccess:"Inscription supprimée.",adminDeleteSuccess:"Inscription supprimée par l'administration.",emptyRoster:"Aucune inscription pour le moment.",rosterCount:"Inscriptions",powerError:"Saisissez une puissance entière en millions, entre 0 et 1 000 000.",detailsError:"Saisissez des mérites valides et choisissez votre horaire préféré.",tokenMissing:"Saisissez votre code privé de suppression.",adminMissing:"Saisissez le code administrateur et l'identifiant.",confirmDelete:"Voulez-vous vraiment supprimer votre inscription ? Cette action est irréversible.",confirmAdminDelete:"Confirmer la suppression de cette inscription ?",tokenNotReturned:"Inscription enregistrée, mais aucun code privé n'a été renvoyé. Contactez un responsable avant de quitter la page.",copied:"Code copié",languageLabel:"Choisir la langue"
+};
+const translations = {es:baseES,en:baseEN,fr:baseFR};
+let currentLanguage = localStorage.getItem('era83-language') || 'es';
+let inviteCode = '';
+let rosterData = [];
+const $ = id => document.getElementById(id);
+const categoryKeys = {Mythic:'categoryMythic',Legend:'categoryLegend',Hero:'categoryHero',Master:'categoryMaster',Elite:'categoryElite',Vanguard:'categoryVanguard'};
+function tr(key){ return (translations[currentLanguage] && translations[currentLanguage][key]) || baseEN[key] || baseES[key] || key; }
+function setLanguage(lang){
+ if(!languages.some(([code])=>code===lang)) lang='es';
+ currentLanguage=lang;
+ try{localStorage.setItem('era83-language',lang);}catch(_){}
+ document.documentElement.lang=lang;
+ document.querySelectorAll('[data-i18n]').forEach(el=>{
+   const key=el.getAttribute('data-i18n');
+   if(tr(key)) el.textContent=tr(key);
+ });
+ document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+   const key=el.getAttribute('data-i18n-placeholder');
+   if(tr(key)) el.placeholder=tr(key);
+ });
+ const select=$('languageSelect');
+ if(select && select.value!==lang) select.value=lang;
+ renderRoster();
+}
+function initLanguage(){
+ const select=$('languageSelect');
+ if(!select) return;
+ select.setAttribute('aria-label',baseES.languageLabel);
+ languages.forEach(([code,name])=>{
+   const option=document.createElement('option');
+   option.value=code;
+   option.textContent=name;
+   select.appendChild(option);
+ });
+ const saved=languages.some(([code])=>code===currentLanguage)?currentLanguage:'es';
+ select.value=saved;
+ select.addEventListener('change',event=>setLanguage(event.target.value));
+ setLanguage(saved);
+}
+async function api(action, extra={}){
+ const body={action, ...extra};
+ const response=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_PUBLIC_KEY,'Authorization':'Bearer '+SUPABASE_PUBLIC_KEY},body:JSON.stringify(body)});
+ let data; try{data=await response.json();}catch(_){throw new Error('HTTP '+response.status);}
+ if(!response.ok || data.success===false || data.error) throw new Error(data.error || data.message || ('HTTP '+response.status));
+ return data;
+}
+function showStatus(message, ok=false){const el=$('signupStatus');el.textContent=message;el.className='status-message show '+(ok?'ok':'error');}
+function setBusy(button,busy){if(!button)return;button.disabled=busy;button.style.opacity=busy?'.65':'1';}
+function categoryFor(power){if(power>=260)return'Mythic';if(power>=180)return'Legend';if(power>=140)return'Hero';if(power>=90)return'Master';if(power>=70)return'Elite';return'Vanguard';}
+function pickRows(data){if(Array.isArray(data))return data;for(const key of ['signups','players','data','registrations','results'])if(Array.isArray(data?.[key]))return data[key];return [];}
+function normalizeRow(row){return {id:row.id||row.signup_id||'',player_name:row.player_name||row.playerName||row.name||'',current_era:row.current_era||row.currentEra||row.era||'',power_m:Number(row.power_m??row.powerM??row.power??0),merits:Number(row.merits??row.merit_points??row.meritPoints??0),preferred_schedule:row.preferred_schedule||row.preferredSchedule||row.schedule||'',category:row.category||categoryFor(Number(row.power_m??row.powerM??row.power??0)),created_at:row.created_at||''};}
+async function loadRoster(){ $('rosterSummary').textContent=tr('loading'); try{const data=await api('list',{inviteCode,invite_code:inviteCode});rosterData=pickRows(data).map(normalizeRow);renderRoster();$('rosterSummary').textContent=rosterData.length+' '+tr('rosterCount').toLowerCase();}catch(err){$('rosterSummary').textContent=tr('apiError')+' ('+err.message+')';$('rosterList').innerHTML='';}}
+function renderRoster(){const target=$('rosterList');if(!target)return;const filter=$('categoryFilter')?.value||'all';const order=['Mythic','Legend','Hero','Master','Elite','Vanguard'];const rows=rosterData.filter(r=>filter==='all'||r.category===filter).sort((a,b)=>b.power_m-a.power_m);target.innerHTML='';if(!rows.length){target.innerHTML='<div class="roster-empty">'+escapeHtml(tr('emptyRoster'))+'</div>';return;}for(const cat of order){const members=rows.filter(r=>r.category===cat);if(!members.length)continue;const section=document.createElement('div');section.className='roster-category';const heading=document.createElement('h3');heading.innerHTML='<span>'+escapeHtml(tr(categoryKeys[cat]))+'</span><span>'+members.length+'</span>';section.appendChild(heading);const wrap=document.createElement('div');wrap.className='roster-table-wrap';const table=document.createElement('table');table.className='roster-table';table.innerHTML='<thead><tr><th>'+escapeHtml(tr('colName'))+'</th><th>'+escapeHtml(tr('colEra'))+'</th><th>'+escapeHtml(tr('colPower'))+'</th><th>'+escapeHtml(tr('colMerits'))+'</th><th>'+escapeHtml(tr('colSchedule'))+'</th><th>'+escapeHtml(tr('colId'))+'</th></tr></thead>';const tbody=document.createElement('tbody');members.forEach(r=>{const trEl=document.createElement('tr');[r.player_name,r.current_era,r.power_m.toLocaleString(currentLanguage,{maximumFractionDigits:2}),r.merits.toLocaleString(currentLanguage),scheduleLabel(r.preferred_schedule),r.id].forEach(value=>{const td=document.createElement('td');td.textContent=String(value);trEl.appendChild(td);});tbody.appendChild(trEl);});table.appendChild(tbody);wrap.appendChild(table);section.appendChild(wrap);target.appendChild(section);}}
+function scheduleLabel(value){const key=({morning:'scheduleMorning',afternoon:'scheduleAfternoon',evening:'scheduleEvening',variable:'scheduleVariable'})[value];return key?tr(key):(value||'—');}
+function escapeHtml(value){return String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+async function unlock(){const code=$('inviteCodeInput').value.trim();if(!code){showStatus(tr('inviteRequired'));return;}setBusy($('unlockButton'),true);try{inviteCode=code;const data=await api('list',{inviteCode:code,invite_code:code});$('inviteGate').hidden=true;$('registrationContent').hidden=false;showStatus(tr('inviteAccepted'),true);await loadRoster();}catch(err){inviteCode='';showStatus(err.message||tr('apiError'));}finally{setBusy($('unlockButton'),false);}}
+$('unlockButton').addEventListener('click',unlock);$('inviteCodeInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();unlock();}});
+$('signupForm').addEventListener('submit',async e=>{e.preventDefault();const playerName=$('playerName').value.trim(),currentEra=$('currentEra').value.trim(),powerM=Number($('powerM').value),merits=Number($('merits').value),preferredSchedule=$('preferredSchedule').value;if(!inviteCode){showStatus(tr('inviteRequired'));return;}if(!Number.isFinite(powerM)||!Number.isInteger(powerM)||powerM<0||powerM>1000000){showStatus(tr('powerError'));return;}if(!Number.isSafeInteger(merits)||merits<0||merits>1000000000||!preferredSchedule){showStatus(tr('detailsError'));return;}const button=$('signupButton');setBusy(button,true);try{const data=await api('signup',{inviteCode,invite_code:inviteCode,playerName,player_name:playerName,currentEra,current_era:currentEra,powerM,power_m:powerM,power:powerM,merits,merit_points:merits,meritPoints:merits,preferredSchedule,preferred_schedule:preferredSchedule,schedule:preferredSchedule});showStatus(tr('signupSuccess'),true);const token=data.deleteToken||data.delete_token||data.deletionToken||data.token;if(token){$('deleteTokenValue').textContent=token;$('deleteTokenBox').classList.add('show');}else{$('deleteTokenBox').classList.remove('show');showStatus(tr('tokenNotReturned'),false);} $('signupForm').reset();await loadRoster();}catch(err){showStatus(err.message||tr('apiError'));}finally{setBusy(button,false);}});
+$('refreshButton').addEventListener('click',loadRoster);$('categoryFilter').addEventListener('change',renderRoster);
+$('deleteOwnButton').addEventListener('click',async()=>{const token=$('deleteTokenInput').value.trim();if(!token){showStatus(tr('tokenMissing'));return;}if(!confirm(tr('confirmDelete')))return;setBusy($('deleteOwnButton'),true);try{await api('delete',{inviteCode,invite_code:inviteCode,deleteToken:token,delete_token:token,token});showStatus(tr('deleteSuccess'),true);$('deleteTokenInput').value='';$('deleteTokenBox').classList.remove('show');await loadRoster();}catch(err){showStatus(err.message||tr('apiError'));}finally{setBusy($('deleteOwnButton'),false);}});
+$('adminDeleteButton').addEventListener('click',async()=>{const adminCode=$('adminCodeInput').value.trim(),id=$('adminSignupId').value.trim();if(!adminCode||!id){showStatus(tr('adminMissing'));return;}if(!confirm(tr('confirmAdminDelete')))return;setBusy($('adminDeleteButton'),true);try{await api('admin-delete',{inviteCode,invite_code:inviteCode,adminCode,admin_code:adminCode,id,signupId:id,signup_id:id});showStatus(tr('adminDeleteSuccess'),true);$('adminSignupId').value='';await loadRoster();}catch(err){showStatus(err.message||tr('apiError'));}finally{setBusy($('adminDeleteButton'),false);}});
+initLanguage();
+</script>
+</body>
+</html>
